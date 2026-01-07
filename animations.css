@@ -1,0 +1,334 @@
+/* ============================================
+   ANIMATIONS.CSS — Advanced Micro-Interactions
+   ============================================ */
+
+/* === STAGGER ANIMATIONS === */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* === REVEAL ON SCROLL === */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === MAGNETIC HOVER === */
+.magnetic {
+    transition: transform 0.3s var(--ease-out);
+}
+
+/* === TEXT REVEAL === */
+.text-reveal {
+    overflow: hidden;
+}
+
+.text-reveal span {
+    display: inline-block;
+    transform: translateY(100%);
+    animation: textRevealUp 0.8s var(--ease-out) forwards;
+}
+
+@keyframes textRevealUp {
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* === LINK UNDERLINE ANIMATION === */
+.link-animate {
+    position: relative;
+    display: inline-block;
+}
+
+.link-animate::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-gold);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s var(--ease-out);
+}
+
+.link-animate:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* === BUTTON RIPPLE === */
+.btn-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-ripple:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* === CARD TILT === */
+.card-tilt {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.card-tilt:hover {
+    transform: rotateX(2deg) rotateY(-2deg);
+}
+
+/* === GLOW PULSE === */
+.glow-pulse {
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(212, 168, 83, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(212, 168, 83, 0.5);
+    }
+}
+
+/* === TYPEWRITER === */
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid var(--accent-gold);
+    white-space: nowrap;
+    animation: 
+        typewriter 3s steps(30) 1s forwards,
+        blink 0.75s step-end infinite;
+}
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* === GRADIENT SHIFT === */
+.gradient-shift {
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* === BOUNCE IN === */
+.bounce-in {
+    animation: bounceIn 0.6s var(--ease-out);
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* === SLIDE IN === */
+.slide-in-left {
+    animation: slideInLeft 0.6s var(--ease-out) both;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.6s var(--ease-out) both;
+}
+
+.slide-in-up {
+    animation: slideInUp 0.6s var(--ease-out) both;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === SCALE FADE === */
+.scale-fade {
+    animation: scaleFade 0.5s var(--ease-out);
+}
+
+@keyframes scaleFade {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* === SPINNER === */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-muted);
+    border-top-color: var(--accent-gold);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* === SKELETON LOADING === */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--bg-secondary) 0%,
+        var(--bg-tertiary) 50%,
+        var(--bg-secondary) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* === FOCUS RING === */
+.focus-ring:focus-visible {
+    outline: none;
+    box-shadow: 
+        0 0 0 2px var(--bg-primary),
+        0 0 0 4px var(--accent-gold);
+}
+
+/* === HOVER LIFT === */
+.hover-lift {
+    transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* === PRESS EFFECT === */
+.press-effect {
+    transition: transform 0.15s ease;
+}
+
+.press-effect:active {
+    transform: scale(0.97);
+}
+
+/* === ICON SPIN === */
+.icon-spin:hover svg,
+.icon-spin:hover .icon {
+    animation: iconSpin 0.5s var(--ease-out);
+}
+
+@keyframes iconSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* === SHAKE === */
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-10px); }
+    80% { transform: translateX(10px); }
+}
+
+/* === PARALLAX BASE === */
+.parallax {
+    will-change: transform;
+}
+
+/* === REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .particle,
+    .bg-gradient::before {
+        animation: none !important;
+    }
+}

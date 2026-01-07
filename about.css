@@ -1,0 +1,293 @@
+/* ============================================
+   ABOUT.CSS — Editorial Magazine Style
+   ============================================ */
+
+/* === ABOUT LAYOUT === */
+.about-section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-20) var(--space-12);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: var(--space-24);
+    align-items: start;
+}
+
+/* === PROFILE CARD === */
+.profile-card {
+    position: sticky;
+    top: calc(var(--nav-height) + var(--space-10));
+    background: linear-gradient(165deg, var(--bg-card), var(--bg-tertiary));
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-xl);
+    padding: var(--space-10);
+    text-align: center;
+    overflow: hidden;
+}
+
+.profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(135deg, var(--accent-gold-muted), var(--accent-teal-muted));
+    z-index: 0;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto var(--space-6);
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: 
+        0 8px 32px rgba(212, 168, 83, 0.3),
+        inset 0 -4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-avatar::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-gold);
+    opacity: 0.4;
+    animation: pulseRing 3s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.05); opacity: 0.2; }
+}
+
+.profile-card h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 500;
+    margin-bottom: var(--space-2);
+    position: relative;
+    z-index: 1;
+}
+
+.profile-role {
+    color: var(--accent-gold);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-8);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-details {
+    text-align: left;
+    border-top: 1px solid var(--border-muted);
+    padding-top: var(--space-6);
+    position: relative;
+    z-index: 1;
+}
+
+.profile-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--border-muted);
+    font-size: var(--text-sm);
+    transition: all var(--duration-base) ease;
+}
+
+.profile-detail:last-child {
+    border-bottom: none;
+}
+
+.profile-detail:hover {
+    padding-left: var(--space-2);
+}
+
+.profile-detail-label {
+    color: var(--text-muted);
+}
+
+.profile-detail-value {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* === STORY CONTENT === */
+.story-content {
+    max-width: 760px;
+}
+
+.story-content h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: 500;
+    margin-bottom: var(--space-8);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.story-content h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 500;
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-6);
+    padding-top: var(--space-12);
+    border-top: 1px solid var(--border-muted);
+    letter-spacing: -0.01em;
+}
+
+.story-content p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: 1.9;
+    margin-bottom: var(--space-6);
+}
+
+.story-content p strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Drop Cap */
+.drop-cap::first-letter {
+    float: left;
+    font-family: var(--font-display);
+    font-size: 5.5rem;
+    line-height: 0.78;
+    padding-right: var(--space-4);
+    padding-top: var(--space-2);
+    color: var(--accent-gold);
+    font-weight: 500;
+}
+
+/* Pull Quote */
+.pull-quote {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-style: italic;
+    color: var(--text-primary);
+    padding: var(--space-10) 0 var(--space-10) var(--space-10);
+    margin: var(--space-10) 0;
+    border-left: 4px solid var(--accent-gold);
+    position: relative;
+    line-height: 1.5;
+}
+
+.pull-quote::before {
+    content: '"';
+    position: absolute;
+    left: var(--space-10);
+    top: var(--space-4);
+    font-size: 5rem;
+    color: var(--accent-gold);
+    opacity: 0.25;
+    font-family: var(--font-display);
+    line-height: 1;
+}
+
+/* === AWARDS GRID === */
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+    margin-top: var(--space-8);
+}
+
+.award-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+    transition: all var(--duration-slow) var(--ease-out);
+    cursor: default;
+}
+
+.award-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.award-icon {
+    font-size: var(--text-3xl);
+    flex-shrink: 0;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.award-info h4 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+    color: var(--text-primary);
+}
+
+.award-info p {
+    font-size: var(--text-sm) !important;
+    color: var(--text-muted) !important;
+    margin-bottom: 0 !important;
+    line-height: 1.4 !important;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-12);
+    }
+    
+    .profile-card {
+        position: static;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+    
+    .about-section {
+        padding: var(--space-16) var(--space-8);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: var(--space-12) var(--space-6);
+    }
+    
+    .awards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pull-quote {
+        font-size: var(--text-xl);
+        padding-left: var(--space-6);
+    }
+    
+    .pull-quote::before {
+        left: var(--space-6);
+        font-size: 3.5rem;
+    }
+    
+    .story-content h2 {
+        font-size: var(--text-3xl);
+    }
+    
+    .drop-cap::first-letter {
+        font-size: 4rem;
+    }
+}

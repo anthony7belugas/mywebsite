@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projects by Anthony Shen - From Bird Flu tracking to biomimicry shin guards. 12+ major projects in tech, design, and social impact.">
+    <title>Projects | Anthony Shen</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="nav-container scrolled">
+        <nav>
+            <a href="index.html" class="logo">Anthony Shen</a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Page Header -->
+        <header class="page-header projects-header">
+            <div class="page-header-text">
+                <h1>Projects</h1>
+                <p>Building solutions that make a difference — from code to community.</p>
+            </div>
+            <div class="project-count">
+                <div class="number">12+</div>
+                <div class="label">Major Projects</div>
+            </div>
+        </header>
+
+        <!-- Featured Project -->
+        <section class="featured-section">
+            <div class="featured-label">Featured Project</div>
+            <div class="featured-project">
+                <div class="featured-info">
+                    <h2>Bird Flu Tracker</h2>
+                    <p>Interactive data visualization exploring H5N1 avian influenza patterns across the United States. Built to help researchers and policymakers understand when, where, and why outbreaks occur — featuring temperature correlations, species risk analysis, and regional hotspot mapping.</p>
+                    <div class="featured-tags">
+                        <span class="featured-tag">React</span>
+                        <span class="featured-tag">Vite</span>
+                        <span class="featured-tag">SQL</span>
+                        <span class="featured-tag">Data Visualization</span>
+                        <span class="featured-tag">Public Health</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="openModal('birdflu')">
+                        View Project Details
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+                <div class="featured-visual">
+                    <div class="icon">🦆</div>
+                    <h4>Interactive Mapping</h4>
+                    <p>Real-time outbreak visualization</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-section">
+            <div class="projects-grid">
+                <!-- Besties Inc -->
+                <article class="project-card" onclick="openModal('besties')">
+                    <div class="project-preview">
+                        <div class="project-gradient" style="background: linear-gradient(135deg, #e879a9 0%, #a17fe0 100%);"></div>
+                        <div class="project-icon">💜</div>
+                        <span class="project-badge" style="color: #e879a9;">CEO & Founder</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Besties Inc.</h3>
+                        <p>Social networking app for college students, building authentic connections through shared interests and values.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">Firebase</span>
+                            <span class="project-tag">Expo</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- HeatShield -->
+                <article class="project-card" onclick="openModal('heatshield')">
+                    <div class="project-preview">
+                        <div class="project-gradient" style="background: linear-gradient(135deg, #3eb8a8 0%, #5b9cf4 100%);"></div>
+                        <div class="project-icon">🦋</div>
+                        <span class="project-badge" style="color: #3eb8a8;">Biomimicry</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>HeatShield NanoWing Pro</h3>
+                        <p>Butterfly wing-inspired shin guards with nanostructures for passive cooling during athletic performance.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">3D Printing</span>
+                            <span class="project-tag">Materials</span>
+                            <span class="project-tag">Design</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ENSEMBLE -->
+                <article class="project-card" onclick="openModal('ensemble')">
+                    <div class="project-preview">
+                        <div class="project-gradient" style="background: linear-gradient(135deg, #fb923c 0%, #e879a9 100%);"></div>
+                        <div class="project-icon">👔</div>
+                        <span class="project-badge" style="color: #fb923c;">AI + IoT</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>ENSEMBLE</h3>
+                        <p>Smart wardrobe system with AI-powered outfit recommendations and automatic clothing cataloging.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Computer Vision</span>
+                            <span class="project-tag">IoT</span>
+                            <span class="project-tag">AI</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- MoveAmerica -->
+                <article class="project-card" onclick="openModal('moveamerica')">
+                    <div class="project-preview">
+                        <div class="project-gradient" style="background: linear-gradient(135deg, #4ade80 0%, #3eb8a8 100%);"></div>
+                        <div class="project-icon">🏃</div>
+                        <span class="project-badge" style="color: #4ade80;">Health + Gaming</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>MoveAmerica</h3>
+                        <p>Nike x Gaming initiative promoting exercise through anime cons and gaming events with virtual rewards.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">UX Design</span>
+                            <span class="project-tag">Gamification</span>
+                            <span class="project-tag">Marketing</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Care Compass -->
+                <article class="project-card" onclick="openModal('carecompass')">
+                    <div class="project-preview">
+                        <div class="project-gradient" style="background: linear-gradient(135deg, #a17fe0 0%, #5b9cf4 100%);"></div>
+                        <div class="project-icon">🧭</div>
+                        <span class="project-badge" style="color: #a17fe0;">Healthcare</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Care Compass</h3>
+                        <p>Healthcare navigation platform helping patients and caregivers navigate complex medical systems.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">UX Research</span>
+                            <span class="project-tag">Healthcare</span>
+                            <span class="project-tag">Design</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Smart Fish Feeder -->
+                <article class="project-card" onclick="openModal('fishfeeder')">
+                    <div class="project-preview">
+                        <div class="project-gradient" style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);"></div>
+                        <div class="project-icon">🐟</div>
+                        <span class="project-badge" style="color: #f59e0b;">Award Winner</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Smart Fish Feeder</h3>
+                        <p>WiFi-enabled Arduino robotic feeder. 1st Place National, Bronze Medal International at WRO.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Arduino</span>
+                            <span class="project-tag">IoT</span>
+                            <span class="project-tag">Robotics</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Solar Koi Pond -->
+                <article class="project-card" onclick="openModal('koipond')">
+                    <div class="project-preview">
+                        <div class="project-gradient" style="background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);"></div>
+                        <div class="project-icon">☀️</div>
+                        <span class="project-badge" style="color: #06b6d4;">Sustainability</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Solar Aquaponic Koi Pond</h3>
+                        <p>Self-sustaining ecosystem with solar-powered pumps and aquaponics supporting 20+ koi fish.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Solar</span>
+                            <span class="project-tag">Aquaponics</span>
+                            <span class="project-tag">DIY</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Refugee App -->
+                <article class="project-card" onclick="openModal('refugeeapp')">
+                    <div class="project-preview">
+                        <div class="project-gradient" style="background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);"></div>
+                        <div class="project-icon">🏠</div>
+                        <span class="project-badge" style="color: #8b5cf6;">Social Impact</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Refugee Shelter App</h3>
+                        <p>Location-based app helping refugees find nearby shelters. 2nd place hackathon winner, open source.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Mobile</span>
+                            <span class="project-tag">Open Source</span>
+                            <span class="project-tag">Social Good</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- EagleBots -->
+                <article class="project-card" onclick="openModal('eaglebots')">
+                    <div class="project-preview">
+                        <div class="project-gradient" style="background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);"></div>
+                        <div class="project-icon">🤖</div>
+                        <span class="project-badge" style="color: #fbbf24;">2x National Champ</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>EagleBots</h3>
+                        <p>World Robotics Olympiad team achieving 2x National Championships with innovative designs.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Robotics</span>
+                            <span class="project-tag">Competition</span>
+                            <span class="project-tag">Leadership</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- High Mobility -->
+                <article class="project-card" onclick="openModal('highmobility')">
+                    <div class="project-preview">
+                        <div class="project-gradient" style="background: linear-gradient(135deg, #14b8a6 0%, #0ea5e9 100%);"></div>
+                        <div class="project-icon">🎓</div>
+                        <span class="project-badge" style="color: #14b8a6;">1000+ Students</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>High Mobility Foundation</h3>
+                        <p>Non-profit delivering STEM education in robotics, coding, and entrepreneurship to youth.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Education</span>
+                            <span class="project-tag">Non-Profit</span>
+                            <span class="project-tag">STEM</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- VEX For All -->
+                <article class="project-card" onclick="openModal('vexforall')">
+                    <div class="project-preview">
+                        <div class="project-gradient" style="background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);"></div>
+                        <div class="project-icon">🛡️</div>
+                        <span class="project-badge" style="color: #ec4899;">60+ Members</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>VEX For All</h3>
+                        <p>Inclusive robotics organization creating safe spaces for underrepresented students in STEM.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">DEI</span>
+                            <span class="project-tag">Robotics</span>
+                            <span class="project-tag">Community</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- FishBots -->
+                <article class="project-card" onclick="openModal('fishbots')">
+                    <div class="project-preview">
+                        <div class="project-gradient" style="background: linear-gradient(135deg, #0891b2 0%, #7c3aed 100%);"></div>
+                        <div class="project-icon">🐠</div>
+                        <span class="project-badge" style="color: #0891b2;">WRO Team</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>FishBots</h3>
+                        <p>Original WRO competition team focused on aquatic-themed robotic solutions and autonomous navigation.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Robotics</span>
+                            <span class="project-tag">Team Lead</span>
+                            <span class="project-tag">Innovation</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="modal-birdflu">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('birdflu')" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2>🦆 Bird Flu Tracker</h2>
+                <p>Interactive H5N1 Avian Influenza Data Visualization</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>Overview</h4>
+                    <p>Since 2003, the CDC has reported over 950 H5N1 cases globally with a 49% mortality rate. This visualization helps researchers and policymakers identify when, where, and why outbreaks occur, providing critical insights for public health decision-making.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Key Insights</h4>
+                    <ul>
+                        <li><strong>Winter drives surges</strong> — Inverse relationship between temperature and case counts, with cold months seeing highest outbreak rates</li>
+                        <li><strong>Wetland species at highest risk</strong> — Mallards and Canada Geese face greatest danger due to migration patterns and habitat</li>
+                        <li><strong>Regional hotspots</strong> — Minnesota and California show elevated cases based on ecological factors and migration routes</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h4>Technology Stack</h4>
+                    <p>React, Vite, React Router, Interactive Mapping Libraries, SQL Database Backend, Data Visualization</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-besties">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('besties')" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2>💜 Besties Inc.</h2>
+                <p>CEO & Founder — Social Networking for College Students</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>Vision</h4>
+                    <p>College is transformative, but making genuine connections is hard. Besties helps students find their people through shared interests, values, and authentic interactions — not superficial matching algorithms that prioritize engagement over meaningful relationships.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>My Role</h4>
+                    <ul>
+                        <li>Leading product development and technical architecture decisions</li>
+                        <li>Managing React Native/Expo codebase with Firebase/Firestore backend</li>
+                        <li>Conducting extensive user research with college students across campuses</li>
+                        <li>Preparing for iOS and Android deployment and App Store launch</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h4>Technology Stack</h4>
+                    <p>React Native, Expo, Firebase, Firestore, Cloud Functions, Authentication, Push Notifications</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-heatshield">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('heatshield')" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2>🦋 HeatShield NanoWing Pro</h2>
+                <p>Biomimicry-Inspired Athletic Cooling Technology</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>The Problem</h4>
+                    <p>Athletes face a hidden performance barrier: just 1°C change in muscle temperature can reduce performance by up to 5%. Traditional shin guards trap heat during gameplay, causing discomfort, reduced performance, and potential injury risk.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Our Solution</h4>
+                    <p>Inspired by butterfly wing nanostructures that naturally release heat to prevent overheating during flight, we developed the NanoWing Pro — a 3D-printed TPU shin guard with biomimetic cooling properties that significantly outperforms traditional EVA foam designs.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Validation & Results</h4>
+                    <ul>
+                        <li><strong>User Research:</strong> Interviewed 7 soccer players — 5/7 reported significant heat/sweat issues</li>
+                        <li><strong>Market Validation:</strong> 100% of respondents willing to pay 15-25% premium for cooling tech</li>
+                        <li><strong>Testing:</strong> Heat testing confirmed faster cooling than leading competitors</li>
+                        <li><strong>Pitch:</strong> Presented to Ravi Sawhney at RKS Design during Innovators Forum</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h4>Team</h4>
+                    <p>Justin Hu, Andy Brennan, Ayla Schorn, Anthony Shen, Ryan Zhu</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-ensemble">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('ensemble')" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2>👔 ENSEMBLE</h2>
+                <p>Your Wardrobe, Digitized</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>The Problem</h4>
+                    <p>On average, 25% of closet items go unworn for a full year. People buy duplicates because they lose track of what they own. This clothing disorganization wastes money, time, and contributes to the fast fashion waste crisis.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Our Solution</h4>
+                    <ul>
+                        <li><strong>Smart Hardware</strong> — Slim bar with built-in camera and weight sensors for automatic detection</li>
+                        <li><strong>Digital Catalog</strong> — AI (computer vision) automatically recognizes and logs clothing items</li>
+                        <li><strong>Smart Styling</strong> — Personalized outfit suggestions based on weather, calendar events, and style</li>
+                        <li><strong>Sustainability Engine</strong> — Identifies unworn items and facilitates resale or donation</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h4>Market Opportunity</h4>
+                    <p>TAM: $108B | SAM: $21.6B | SOM: $216M (3-5 year outlook). Seeking $30K funding for prototype development.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Team</h4>
+                    <p>Itai Feldman, Sloan Kimel, Anthony Shen, Preston Thoman, Jordan Wright</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-moveamerica">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('moveamerica')" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2>🏃 MoveAmerica</h2>
+                <p>Nike x Gaming Initiative for Gen Z Health</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>The Challenge</h4>
+                    <p>90% of Gen Z are gamers. Traditional fitness marketing doesn't resonate with this audience. How do we promote exercise and mental health to a generation that lives online and finds community in digital spaces?</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Our Solution</h4>
+                    <ul>
+                        <li>Nike pop-ups at anime conventions, TwitchCon, and gaming events</li>
+                        <li>Gamified fitness challenges with real-world rewards and achievements</li>
+                        <li>Partnerships with games like Valorant for exclusive virtual items tied to physical activity</li>
+                        <li>Mental health integration through movement, reducing sedentary gaming</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h4>Team</h4>
+                    <p>Arely Peckham, Siddesh Narayana, Kiho Hong, Anthony Shen</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-carecompass">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('carecompass')" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2>🧭 Care Compass</h2>
+                <p>Healthcare Navigation Platform</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>The Problem</h4>
+                    <p>Navigating the healthcare system is overwhelming — especially for patients with chronic conditions and their caregivers. Information is scattered across providers, appointments are hard to coordinate, and important details fall through the cracks during critical moments.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Our Solution</h4>
+                    <p>Care Compass provides a unified platform for patients and caregivers to navigate complex medical journeys with confidence, centralized information, and coordinated care management. We bring clarity to chaos.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Context</h4>
+                    <p>Developed as final project for ACAD 183 at USC Iovine and Young Academy. Applied design thinking methodology with extensive user research, interviews, and iterative prototyping.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-fishfeeder">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('fishfeeder')" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2>🐟 Smart Fish Feeder</h2>
+                <p>Award-Winning IoT Robotics Project</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>Origin Story</h4>
+                    <p>During a family vacation, our commercial fish feeder failed catastrophically. I came home to find my beloved koi dead. Most people would have just bought a better feeder. I built one instead.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Features</h4>
+                    <ul>
+                        <li>WiFi connectivity for remote monitoring and control from anywhere</li>
+                        <li>Programmable feeding schedules with flexible timing options</li>
+                        <li>Real-time status monitoring and failure alerts</li>
+                        <li>Reliable mechanical design for consistent, long-term operation</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h4>Awards & Recognition</h4>
+                    <ul>
+                        <li><strong>1st Place National</strong> — World Robotics Olympiad USA</li>
+                        <li><strong>Bronze Medal International</strong> — World Robotics Olympiad</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-koipond">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('koipond')" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2>☀️ Solar Aquaponic Koi Pond</h2>
+                <p>Self-Sustaining Backyard Ecosystem</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>The Project</h4>
+                    <p>Built over 2 years starting at age 12, this project began with nothing but a pickaxe and determination. What started as a simple pond evolved into a fully integrated aquaponic ecosystem that runs entirely off-grid.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Features</h4>
+                    <ul>
+                        <li><strong>Solar-powered pumps</strong> — Completely off-grid water circulation system</li>
+                        <li><strong>Aquaponics integration</strong> — Fish waste feeds plants, plants filter water naturally</li>
+                        <li><strong>20+ koi fish</strong> — Thriving ecosystem across multiple generations</li>
+                        <li><strong>COSMOS-inspired</strong> — Applied principles from UCSC research program</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h4>Lessons Learned</h4>
+                    <p>This project taught me that the best solutions come from understanding systems holistically — ecology, engineering, and sustainability working together in harmony. The pond is still running today.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-refugeeapp">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('refugeeapp')" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2>🏠 Refugee Shelter App</h2>
+                <p>Open Source Social Impact Project</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>Mission</h4>
+                    <p>Help refugees find nearby shelters quickly and easily. When you're displaced, every minute matters. Access to safe shelter can be life-saving, and technology should serve those who need it most.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Features</h4>
+                    <ul>
+                        <li>Location-based shelter search with real-time availability data</li>
+                        <li>Availability updates to prevent wasted trips to full facilities</li>
+                        <li>Multi-language support for diverse populations</li>
+                        <li>Offline capability for areas with limited connectivity</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h4>Recognition & Philosophy</h4>
+                    <p><strong>2nd Place</strong> at hackathon competition. Released as public domain so anyone can use, modify, and improve it — because technology should serve humanity without barriers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-eaglebots">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('eaglebots')" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2>🤖 EagleBots</h2>
+                <p>World Robotics Olympiad Competition Team</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>Overview</h4>
+                    <p>EagleBots was my competitive robotics team in the World Robotics Olympiad. We designed and built autonomous robots to complete complex, timed challenges under intense pressure at national and international stages.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Achievements</h4>
+                    <ul>
+                        <li><strong>2x National Champions</strong> — WRO USA</li>
+                        <li>Qualified for and competed in international competition</li>
+                        <li>Developed innovative mechanical and software solutions</li>
+                        <li>Mentored younger team members in programming and design</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h4>My Role</h4>
+                    <p>Lead programmer and team strategist — responsible for autonomous navigation algorithms, sensor integration, and mechanical optimization for peak competition performance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-highmobility">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('highmobility')" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2>🎓 High Mobility Foundation</h2>
+                <p>STEM Education Non-Profit</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>Mission</h4>
+                    <p>Provide accessible STEM education to youth regardless of background. Every student deserves the opportunity to discover their potential through technology, innovation, and entrepreneurship.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><strong>Robotics Workshops</strong> — Hands-on building and programming with real robots</li>
+                        <li><strong>Coding Bootcamps</strong> — Introduction to programming fundamentals</li>
+                        <li><strong>Speech & Debate</strong> — Communication and critical thinking skills</li>
+                        <li><strong>Entrepreneurship</strong> — Turning ideas into actionable projects</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h4>Impact</h4>
+                    <ul>
+                        <li><strong>1,000+ students</strong> reached across communities</li>
+                        <li>Trained volunteer instructor network</li>
+                        <li>Developed comprehensive, reusable curriculum</li>
+                        <li>4 years of sustained operation and growth</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-vexforall">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('vexforall')" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2>🛡️ VEX For All</h2>
+                <p>Inclusive Robotics Organization</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>Origin Story</h4>
+                    <p>When my sister joined her middle school robotics team, she was pushed aside and ignored by the boys. I watched her passion for STEM get crushed by exclusion. When I researched, I discovered this was happening to girls across the country.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Our Mission</h4>
+                    <p>Create an inclusive robotics community where every student — regardless of gender, background, or experience level — can learn, grow, and compete with dignity and support.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Impact</h4>
+                    <ul>
+                        <li><strong>60+ active members</strong> in inclusive environment</li>
+                        <li>Safe and supportive learning culture</li>
+                        <li>Special focus on protecting underrepresented students</li>
+                        <li>Multiple successful competition teams formed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-fishbots">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('fishbots')" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2>🐠 FishBots</h2>
+                <p>Original WRO Competition Team</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>Overview</h4>
+                    <p>FishBots was my original World Robotics Olympiad team, named for our love of aquatic life (and my koi pond obsession). This team was the foundation of my robotics journey and sparked my passion for building.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Focus Areas</h4>
+                    <ul>
+                        <li>Autonomous robot design and construction</li>
+                        <li>Sensor integration and environmental navigation</li>
+                        <li>Mechanical engineering optimization</li>
+                        <li>Team collaboration and strategic planning</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h4>Connection</h4>
+                    <p>The skills I developed with FishBots directly inspired my Smart Fish Feeder project — combining robotics expertise with my passion for my koi pond ecosystem. Everything connects.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 Anthony Shen — Crafted with intention in Los Angeles</p>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Modal functions
+        function openModal(id) {
+            const modal = document.getElementById('modal-' + id);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById('modal-' + id);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close modal on overlay click
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>

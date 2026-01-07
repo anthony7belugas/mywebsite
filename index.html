@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anthony Shen - Entrepreneur, Full-Stack Developer, and Builder. CEO of Besties Inc. USC Iovine and Young Academy '29.">
+    <meta name="keywords" content="Anthony Shen, USC, Iovine Young Academy, Besties Inc, entrepreneur, developer, React Native">
+    <meta name="author" content="Anthony Shen">
+    <meta property="og:title" content="Anthony Shen | Builder of Things That Matter">
+    <meta property="og:description" content="CEO & Founder at Besties Inc. USC Iovine and Young Academy. Transforming ideas into impact.">
+    <meta property="og:type" content="website">
+    <title>Anthony Shen | Builder of Things That Matter</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-gradient"></div>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="nav-container" id="nav">
+        <nav>
+            <a href="index.html" class="logo">Anthony Shen</a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-label">Entrepreneur & Developer</div>
+                    <h1 class="hero-title">
+                        Builder of
+                        <span class="highlight">Things That Matter</span>
+                    </h1>
+                    <p class="hero-description">
+                        CEO & Founder at Besties Inc. USC Iovine and Young Academy '29. 
+                        I transform ideas into impact through technology, design thinking, 
+                        and relentless iteration. Let's create something meaningful together.
+                    </p>
+
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-value">3.9</div>
+                            <div class="stat-label">GPA at USC</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">1,000+</div>
+                            <div class="stat-label">Students Impacted</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">12+</div>
+                            <div class="stat-label">Major Projects</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-cta">
+                        <a href="projects.html" class="btn btn-primary">
+                            Explore My Work
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="status-badge">Currently Building</div>
+                        <h3>Besties Inc.</h3>
+                        <p>Leading a social networking platform that connects college students through shared interests and authentic friendships. Building genuine connections, not superficial matches. Preparing for iOS and Android launch.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Expo</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Firestore</span>
+                            <span class="tech-tag">Cloud Functions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Anthony Shen — Crafted with intention in Los Angeles</p>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.pageYOffset > 60);
+        });
+
+        // Mobile menu
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close on nav link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+</body>
+</html>
