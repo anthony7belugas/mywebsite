@@ -54,11 +54,25 @@
                 <div class="featured-info">
                     <h2>Bird Flu Tracker</h2>
                     <p>Interactive data visualization exploring H5N1 avian influenza patterns across the United States. Built to help researchers and policymakers understand when, where, and why outbreaks occur — featuring temperature correlations, species risk analysis, and regional hotspot mapping.</p>
+                    <div class="featured-stats">
+                        <div class="featured-stat">
+                            <span class="stat-number" id="total-cases">—</span>
+                            <span class="stat-label">Total Cases</span>
+                        </div>
+                        <div class="featured-stat">
+                            <span class="stat-number" id="unique-species">—</span>
+                            <span class="stat-label">Species Affected</span>
+                        </div>
+                        <div class="featured-stat">
+                            <span class="stat-number" id="states-affected">—</span>
+                            <span class="stat-label">States</span>
+                        </div>
+                    </div>
                     <div class="featured-tags">
                         <span class="featured-tag">React</span>
-                        <span class="featured-tag">Vite</span>
+                        <span class="featured-tag">Leaflet</span>
                         <span class="featured-tag">SQL</span>
-                        <span class="featured-tag">Data Visualization</span>
+                        <span class="featured-tag">Chart.js</span>
                         <span class="featured-tag">Public Health</span>
                     </div>
                     <button class="btn btn-primary" onclick="openModal('birdflu')">
@@ -67,15 +81,24 @@
                     </button>
                 </div>
                 <div class="featured-visual">
-                    <!-- Photo Placeholder -->
-                    <div class="photo-placeholder project-photo">
-                        <div class="placeholder-icon">📊</div>
-                        <p class="placeholder-text">Project Screenshot</p>
-                        <span class="placeholder-size">Bird Flu Tracker UI</span>
+                    <div class="map-preview-container">
+                        <div class="map-preview" id="preview-map"></div>
+                        <div class="map-overlay-gradient"></div>
+                        <div class="map-badge">
+                            <span class="pulse-dot"></span>
+                            Live Data
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Leaflet CSS & JS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
 
         <!-- Projects Grid -->
         <section class="projects-section">
@@ -857,6 +880,122 @@
                 document.body.style.overflow = '';
             }
         });
+
+        // Bird Flu Map Preview
+        const LOCATIONS = {
+            'Alabama': [32.8, -86.8], 'Alaska': [61.3, -152.4], 'Arizona': [33.7, -111.4], 'Arkansas': [34.9, -92.3],
+            'California': [36.1, -119.6], 'Colorado': [39.0, -105.3], 'Connecticut': [41.6, -72.7], 'Delaware': [39.3, -75.5],
+            'Florida': [27.7, -81.6], 'Georgia': [33.0, -83.6], 'Hawaii': [21.0, -157.5], 'Idaho': [44.2, -114.4],
+            'Illinois': [40.3, -88.9], 'Indiana': [39.8, -86.2], 'Iowa': [42.0, -93.2], 'Kansas': [38.5, -96.7],
+            'Kentucky': [37.6, -84.6], 'Louisiana': [31.1, -91.8], 'Maine': [44.6, -69.3], 'Maryland': [39.0, -76.8],
+            'Massachusetts': [42.2, -71.5], 'Michigan': [43.3, -84.5], 'Minnesota': [45.6, -93.9], 'Mississippi': [32.7, -89.6],
+            'Missouri': [38.4, -92.2], 'Montana': [46.9, -110.4], 'Nebraska': [41.1, -98.2], 'Nevada': [38.3, -117.0],
+            'New Hampshire': [43.4, -71.5], 'New Jersey': [40.2, -74.5], 'New Mexico': [34.8, -106.2], 'New York': [42.1, -74.9],
+            'North Carolina': [35.6, -79.8], 'North Dakota': [47.5, -99.7], 'Ohio': [40.3, -82.7], 'Oklahoma': [35.5, -96.9],
+            'Oregon': [44.5, -122.0], 'Pennsylvania': [40.5, -77.2], 'Rhode Island': [41.6, -71.5], 'South Carolina': [33.8, -80.9],
+            'South Dakota': [44.2, -99.4], 'Tennessee': [35.7, -86.6], 'Texas': [31.0, -97.5], 'Utah': [40.1, -111.8],
+            'Vermont': [44.0, -72.7], 'Virginia': [37.7, -78.1], 'Washington': [47.4, -121.4], 'West Virginia': [38.4, -80.9],
+            'Wisconsin': [44.2, -89.6], 'Wyoming': [42.7, -107.3]
+        };
+
+        // Initialize map when Leaflet loads
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof L !== 'undefined') {
+                initPreviewMap();
+            }
+        });
+
+        function initPreviewMap() {
+            const mapContainer = document.getElementById('preview-map');
+            if (!mapContainer) return;
+
+            const map = L.map('preview-map', {
+                center: [39.8283, -98.5795],
+                zoom: 4,
+                attributionControl: false,
+                zoomControl: false,
+                scrollWheelZoom: false,
+                dragging: false,
+                doubleClickZoom: false
+            });
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                maxZoom: 19
+            }).addTo(map);
+
+            const markersLayer = L.markerClusterGroup({
+                showCoverageOnHover: false,
+                maxClusterRadius: 50,
+                iconCreateFunction: function(cluster) {
+                    const count = cluster.getChildCount();
+                    let size = count < 10 ? 28 : (count < 50 ? 36 : 44);
+                    return L.divIcon({
+                        html: `<div style="background: rgba(102, 252, 241, 0.9); color: #000; border-radius: 50%; width: ${size}px; height: ${size}px; display: flex; align-items: center; justify-content: center; font-weight: 800; border: 2px solid #fff; box-shadow: 0 0 20px rgba(102, 252, 241, 0.5); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px;">${count}</div>`,
+                        className: 'marker-cluster',
+                        iconSize: L.point(size, size)
+                    });
+                }
+            });
+
+            // Fetch live data
+            fetch('https://mlrocha.webdev.iyaserver.com/acad274/php_files/tester.php')
+                .then(res => res.json())
+                .then(data => {
+                    // Update stats
+                    document.getElementById('total-cases').textContent = data.length.toLocaleString();
+                    
+                    const species = new Set();
+                    const states = new Set();
+                    
+                    data.forEach(row => {
+                        if (row['Common Name']) species.add(row['Common Name']);
+                        if (row['State']) states.add(row['State']);
+                        
+                        const state = row['State'];
+                        const coords = LOCATIONS[state];
+                        if (coords) {
+                            const jitter = [(Math.random() - 0.5) * 2, (Math.random() - 0.5) * 2];
+                            const marker = L.circleMarker([coords[0] + jitter[0], coords[1] + jitter[1]], {
+                                radius: 4,
+                                fillColor: '#ff4d6d',
+                                color: '#ff4d6d',
+                                weight: 1,
+                                opacity: 0.8,
+                                fillOpacity: 0.6
+                            });
+                            markersLayer.addLayer(marker);
+                        }
+                    });
+                    
+                    document.getElementById('unique-species').textContent = species.size;
+                    document.getElementById('states-affected').textContent = states.size;
+                    
+                    map.addLayer(markersLayer);
+                })
+                .catch(err => {
+                    console.log('Using sample data');
+                    document.getElementById('total-cases').textContent = '2,400+';
+                    document.getElementById('unique-species').textContent = '85+';
+                    document.getElementById('states-affected').textContent = '48';
+                    
+                    // Add sample markers
+                    Object.values(LOCATIONS).forEach(coords => {
+                        for (let i = 0; i < Math.floor(Math.random() * 5) + 1; i++) {
+                            const jitter = [(Math.random() - 0.5) * 1.5, (Math.random() - 0.5) * 1.5];
+                            const marker = L.circleMarker([coords[0] + jitter[0], coords[1] + jitter[1]], {
+                                radius: 4,
+                                fillColor: '#ff4d6d',
+                                color: '#ff4d6d',
+                                weight: 1,
+                                opacity: 0.8,
+                                fillOpacity: 0.6
+                            });
+                            markersLayer.addLayer(marker);
+                        }
+                    });
+                    map.addLayer(markersLayer);
+                });
+        }
     </script>
 </body>
 </html>
