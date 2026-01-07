@@ -32,10 +32,11 @@
     background: linear-gradient(
         to bottom,
         var(--accent-gold) 0%,
-        var(--accent-teal) 25%,
-        var(--accent-purple) 50%,
-        var(--accent-blue) 75%,
-        var(--accent-orange) 100%
+        var(--accent-teal) 20%,
+        var(--accent-purple) 40%,
+        var(--accent-blue) 60%,
+        var(--accent-orange) 80%,
+        var(--accent-pink) 100%
     );
     border-radius: 3px;
 }
@@ -68,6 +69,7 @@
 .timeline-item:nth-child(3) .timeline-dot { border-color: var(--accent-purple); }
 .timeline-item:nth-child(4) .timeline-dot { border-color: var(--accent-blue); }
 .timeline-item:nth-child(5) .timeline-dot { border-color: var(--accent-orange); }
+.timeline-item:nth-child(6) .timeline-dot { border-color: var(--accent-pink); }
 
 .timeline-item:hover .timeline-dot {
     transform: translateX(-7.5px) scale(1.4);
